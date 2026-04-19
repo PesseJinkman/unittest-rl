@@ -1,0 +1,34 @@
+openai:
+  model: gpt-5
+  temperature: 1.0
+  max_retries: 3
+  request_timeout_s: 120
+  concurrency: 6
+
+counts:
+  L1:
+    target: 50
+    overgen_multiplier: 1.5
+    buggy_variants_min: 3
+    buggy_variants_max: 5
+  L2:
+    target: 40
+    overgen_multiplier: 1.5
+    buggy_variants_min: 4
+    buggy_variants_max: 6
+  L3:
+    target: 30
+    overgen_multiplier: 1.5
+    buggy_variants_min: 5
+    buggy_variants_max: 8
+
+validation:
+  sample_input_timeout_s: 5
+  banned_imports: [os, subprocess, socket, shutil, sys, ctypes, threading, multiprocessing, requests, urllib, http]
+
+splits:
+  train_frac: 0.85
+
+gold_tests:
+  enabled: true
+  output_path: data/gold_tests.jsonl

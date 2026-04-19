@@ -1,0 +1,67 @@
+seed: 42
+
+model:
+  name: Qwen/Qwen3-1.7B
+  dtype: bfloat16
+  attn_implementation: sdpa   # set to flash_attention_2 if available
+  qlora: false                # flip true if VRAM is tight
+  trust_remote_code: true
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+grpo:
+  num_generations: 6
+  max_prompt_length: 1024
+  max_completion_length: 768
+  temperature: 0.9
+  top_p: 0.95
+  learning_rate: 1.0e-5
+  beta: 0.04
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  num_train_epochs: 1
+  max_steps: 600
+  logging_steps: 1
+  save_steps: 100
+  output_dir: outputs/grpo
+
+reward:
+  w_pass: 0.40
+  w_bugs: 0.40
+  w_cov: 0.20
+  min_tests: 2
+  pytest_timeout_s: 15
+  coverage_timeout_s: 25
+  banned_imports: [os, subprocess, socket, shutil, sys, ctypes, threading, multiprocessing, requests, urllib, http]
+  penalty_timeout: 0.2
+  penalty_banned_import: 0.5
+  parallel_workers: 8
+
+curriculum:
+  levels: [L1, L2, L3]
+  eval_window_steps: 20
+  rolling_n: 60
+  advance_threshold: 0.70
+  consecutive_windows: 3
+  force_advance_cap: null   # set to int (e.g., 250) on demo day as insurance
+
+data:
+  problems_dir: data/problems
+  eval_dir: data/eval
+
+sft_warmup:
+  enabled: true
+  epochs: 1
+  lr: 1.0e-4
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  output_dir: outputs/sft
+  gold_path: data/gold_tests.jsonl
+
+logging:
+  csv_path: outputs/train_log.csv
+  wandb: false
