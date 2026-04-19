@@ -43,12 +43,14 @@ class CurriculumIterableDataset(torch_data.IterableDataset):
         curriculum: CurriculumState,
         tokenizer,
         seed: int = 0,
+        max_prompt_tokens: int = 1024,
     ):
         super().__init__()
         self.problems_by_level = problems_by_level
         self.curriculum = curriculum
         self.tokenizer = tokenizer
         self.rng = random.Random(seed)
+        self.max_prompt_tokens = max_prompt_tokens
 
     def __iter__(self) -> Iterator[dict[str, Any]]:
         while True:
@@ -68,6 +70,10 @@ class CurriculumIterableDataset(torch_data.IterableDataset):
             prompt_text = self.tokenizer.apply_chat_template(
                 messages, tokenize=False, add_generation_prompt=True
             )
+            ids = self.tokenizer.encode(prompt_text)
+            if len(ids) > self.max_prompt_tokens:
+                ids = ids[-self.max_prompt_tokens:]
+                prompt_text = self.tokenizer.decode(ids, skip_special_tokens=False)
             yield {
                 "prompt": prompt_text,
                 "reference_code": p.reference_code,

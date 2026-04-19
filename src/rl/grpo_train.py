@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 import torch
-from peft import LoraConfig, get_peft_model
+from peft import LoraConfig, PeftModel, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainerCallback
 from trl import GRPOConfig, GRPOTrainer
 
@@ -119,8 +119,14 @@ def train_grpo(cfg: dict[str, Any]) -> None:
     # 1. model + tokenizer
     model, tok = _load_model_and_tokenizer(cfg)
 
-    # 2. apply LoRA (or attach on top of SFT-LoRA via `model.name` pointing at SFT out dir)
-    model = _apply_lora(model, cfg["lora"])
+    # 2. load SFT adapter if available, otherwise init fresh LoRA
+    sft_dir = Path(cfg.get("sft_warmup", {}).get("output_dir", "outputs/sft")) / "final"
+    if sft_dir.exists():
+        log.info("Loading SFT adapter from %s", sft_dir)
+        model = PeftModel.from_pretrained(model, str(sft_dir), is_trainable=True)
+    else:
+        log.info("No SFT adapter found at %s, initialising fresh LoRA", sft_dir)
+        model = _apply_lora(model, cfg["lora"])
     model.print_trainable_parameters()
 
     # 3. load problems + curriculum
@@ -147,6 +153,7 @@ def train_grpo(cfg: dict[str, Any]) -> None:
         curriculum=curriculum,
         tokenizer=tok,
         seed=int(cfg.get("seed", 42)),
+        max_prompt_tokens=int(g.get("max_prompt_length", 1024)),
     )
 
     # 5. reward fn + buffer
@@ -174,7 +181,6 @@ def train_grpo(cfg: dict[str, Any]) -> None:
         per_device_train_batch_size=int(g["per_device_train_batch_size"]),
         gradient_accumulation_steps=int(g["gradient_accumulation_steps"]),
         num_generations=int(g["num_generations"]),
-        max_prompt_length=int(g["max_prompt_length"]),
         max_completion_length=int(g["max_completion_length"]),
         temperature=float(g["temperature"]),
         top_p=float(g["top_p"]),
