@@ -89,7 +89,7 @@ def train_sft(cfg: dict[str, Any]) -> None:
         save_steps=100,
         bf16=(cfg["model"]["dtype"] == "bfloat16"),
         gradient_checkpointing=True,
-        max_seq_length=2048,
+        max_length=2048,
         packing=False,
         report_to=[],
         dataset_text_field="text",
