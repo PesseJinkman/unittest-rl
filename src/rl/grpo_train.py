@@ -181,6 +181,7 @@ def train_grpo(cfg: dict[str, Any]) -> None:
         per_device_train_batch_size=int(g["per_device_train_batch_size"]),
         gradient_accumulation_steps=int(g["gradient_accumulation_steps"]),
         num_generations=int(g["num_generations"]),
+        generation_batch_size=int(g["num_generations"]),
         max_completion_length=int(g["max_completion_length"]),
         temperature=float(g["temperature"]),
         top_p=float(g["top_p"]),
@@ -200,6 +201,18 @@ def train_grpo(cfg: dict[str, Any]) -> None:
     csv_logger = CSVLogger(cfg["logging"]["csv_path"])
     cb = CurriculumCallback(curriculum, buffer, csv_logger)
 
+    def _collate(features):
+        # Put a tensor first so accelerate's find_batch_size returns immediately
+        # without recursing into the string fields and raising TypeError.
+        return {
+            "_n": torch.arange(len(features)),
+            "prompt": [f["prompt"] for f in features],
+            "reference_code": [f["reference_code"] for f in features],
+            "buggy_variants": [f["buggy_variants"] for f in features],
+            "slug": [f["slug"] for f in features],
+            "level": [f["level"] for f in features],
+        }
+
     # 8. Trainer
     trainer = GRPOTrainer(
         model=model,
@@ -207,6 +220,7 @@ def train_grpo(cfg: dict[str, Any]) -> None:
         reward_funcs=[reward_fn],
         args=grpo_args,
         train_dataset=train_ds,
+        data_collator=_collate,
         callbacks=[cb],
     )
 
