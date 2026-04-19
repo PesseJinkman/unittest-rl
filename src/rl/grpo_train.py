@@ -220,9 +220,11 @@ def train_grpo(cfg: dict[str, Any]) -> None:
         reward_funcs=[reward_fn],
         args=grpo_args,
         train_dataset=train_ds,
-        data_collator=_collate,
         callbacks=[cb],
     )
+    # GRPOTrainer doesn't expose data_collator in its __init__, but inherits
+    # self.data_collator from Trainer which is read lazily in get_train_dataloader().
+    trainer.data_collator = _collate
 
     trainer.train()
 
