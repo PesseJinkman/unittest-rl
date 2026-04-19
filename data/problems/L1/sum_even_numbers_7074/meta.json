@@ -1,0 +1,68 @@
+{
+  "slug": "sum_even_numbers",
+  "level": "L1",
+  "entrypoints": [
+    "sum_even_numbers"
+  ],
+  "sample_inputs": [
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        [
+          -2,
+          -1,
+          0,
+          7,
+          8
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Treats odd numbers as the ones to sum instead of even numbers."
+    },
+    {
+      "id": "bug_03",
+      "description": "Adds absolute values of even numbers, breaking negatives."
+    },
+    {
+      "id": "bug_04",
+      "description": "Starts total from the first element, causing overcount when it is odd."
+    }
+  ]
+}

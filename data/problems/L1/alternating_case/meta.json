@@ -1,0 +1,51 @@
+{
+  "slug": "alternating_case",
+  "level": "L1",
+  "entrypoints": [
+    "alternating_case"
+  ],
+  "sample_inputs": [
+    {
+      "call": "alternating_case",
+      "args": [
+        "hello world"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_case",
+      "args": [
+        "a1b2c3"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_case",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_case",
+      "args": [
+        "Python-3.12"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Toggles case position for every character, including digits and punctuation"
+    },
+    {
+      "id": "bug_02",
+      "description": "Starts alternation with lowercase instead of uppercase"
+    },
+    {
+      "id": "bug_04",
+      "description": "Flips the branch so uppercase/lowercase outputs are swapped"
+    }
+  ]
+}

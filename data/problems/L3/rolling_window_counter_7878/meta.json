@@ -1,0 +1,67 @@
+{
+  "slug": "rolling_window_counter",
+  "level": "L3",
+  "entrypoints": [
+    "RollingCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Uses exclusive lower bound, dropping boundary timestamp too early"
+    },
+    {
+      "id": "bug_02",
+      "description": "Rejects equal timestamps even though adds should allow non-decreasing order"
+    },
+    {
+      "id": "bug_03",
+      "description": "Queries at older timestamps are allowed and return stale totals"
+    },
+    {
+      "id": "bug_04",
+      "description": "Expired events are pruned on query but not before add"
+    },
+    {
+      "id": "bug_05",
+      "description": "Default delta is 0 instead of 1"
+    },
+    {
+      "id": "bug_06",
+      "description": "reset forgets to clear last timestamp, causing later old adds to fail"
+    },
+    {
+      "id": "bug_07",
+      "description": "Prune subtracts 1 per expired event instead of its stored delta"
+    }
+  ]
+}

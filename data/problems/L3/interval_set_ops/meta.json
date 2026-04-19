@@ -1,0 +1,55 @@
+{
+  "slug": "interval_set_ops",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalSet"
+  ],
+  "sample_inputs": [
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "add fails to merge merely adjacent intervals"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove uses open interval edges and leaves boundary points"
+    },
+    {
+      "id": "bug_03",
+      "description": "contains excludes interval endpoints"
+    },
+    {
+      "id": "bug_04",
+      "description": "total_covered treats intervals as half-open"
+    },
+    {
+      "id": "bug_05",
+      "description": "add does not normalize reversed endpoints"
+    },
+    {
+      "id": "bug_06",
+      "description": "ranges exposes internal lists instead of returning a copy"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "slug": "window_counter",
+  "level": "L3",
+  "entrypoints": [
+    "WindowCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "WindowCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "WindowCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "WindowCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Uses exclusive lower bound, dropping events exactly on the cutoff timestamp."
+    },
+    {
+      "id": "bug_02",
+      "description": "Rejects equal timestamps on add, though non-decreasing timestamps should be valid."
+    },
+    {
+      "id": "bug_03",
+      "description": "Allows querying past timestamps instead of raising, mutating state unexpectedly."
+    },
+    {
+      "id": "bug_04",
+      "description": "total(None) returns sum of all stored events without expiring by latest timestamp."
+    },
+    {
+      "id": "bug_05",
+      "description": "Expires before adding a new event, so a just-added old event can survive one step too long."
+    },
+    {
+      "id": "bug_06",
+      "description": "Accepts zero window size, leading to inconsistent empty-window behavior."
+    },
+    {
+      "id": "bug_07",
+      "description": "Future total(ts) changes latest_ts, affecting later order checks and results."
+    }
+  ]
+}

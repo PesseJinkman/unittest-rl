@@ -1,0 +1,87 @@
+{
+  "slug": "remove_consecutive_duplicates",
+  "level": "L1",
+  "entrypoints": [
+    "remove_consecutive_duplicates"
+  ],
+  "sample_inputs": [
+    {
+      "call": "remove_consecutive_duplicates",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          2,
+          3,
+          1,
+          1
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "remove_consecutive_duplicates",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "remove_consecutive_duplicates",
+      "args": [
+        [
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "remove_consecutive_duplicates",
+      "args": [
+        [
+          "a",
+          "a",
+          "b",
+          "a",
+          "a",
+          "c",
+          "c"
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "remove_consecutive_duplicates",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2,
+          2,
+          1
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Removes all duplicates globally instead of only collapsing consecutive runs."
+    },
+    {
+      "id": "bug_03",
+      "description": "Keeps the last element of each run instead of the first, changing output order in effect."
+    },
+    {
+      "id": "bug_04",
+      "description": "Drops the first run representative by starting from the second element only."
+    }
+  ]
+}

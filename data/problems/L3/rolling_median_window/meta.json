@@ -1,0 +1,63 @@
+{
+  "slug": "rolling_median_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingMedian"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingMedian",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedian",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedian",
+      "args": [
+        4
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedian",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts only when length equals size, shrinking effective capacity by one"
+    },
+    {
+      "id": "bug_02",
+      "description": "Even-sized median uses upper middle element instead of average"
+    },
+    {
+      "id": "bug_03",
+      "description": "Returns 0 for empty median instead of raising ValueError"
+    },
+    {
+      "id": "bug_04",
+      "description": "Odd-sized median picks left-of-middle element"
+    },
+    {
+      "id": "bug_05",
+      "description": "Uses insertion order instead of sorted order to compute median"
+    },
+    {
+      "id": "bug_06",
+      "description": "Rejects bool sizes, differing because bool is an int in Python"
+    }
+  ]
+}

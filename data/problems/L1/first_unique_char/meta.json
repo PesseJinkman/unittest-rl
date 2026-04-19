@@ -1,0 +1,58 @@
+{
+  "slug": "first_unique_char",
+  "level": "L1",
+  "entrypoints": [
+    "first_unique_char"
+  ],
+  "sample_inputs": [
+    {
+      "call": "first_unique_char",
+      "args": [
+        "leetcode"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "first_unique_char",
+      "args": [
+        "aabb"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "first_unique_char",
+      "args": [
+        "swiss"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "first_unique_char",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "first_unique_char",
+      "args": [
+        "aAbBABac"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Returns the last unique character instead of the first one"
+    },
+    {
+      "id": "bug_02",
+      "description": "Treats characters case-insensitively when counting"
+    },
+    {
+      "id": "bug_03",
+      "description": "Incorrectly considers characters unique if seen fewer than 2 times so far"
+    }
+  ]
+}

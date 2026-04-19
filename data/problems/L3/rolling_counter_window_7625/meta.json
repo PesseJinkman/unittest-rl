@@ -1,0 +1,63 @@
+{
+  "slug": "rolling_counter_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts boundary timestamp too early by using <= cutoff."
+    },
+    {
+      "id": "bug_02",
+      "description": "Rejects equal timestamps by requiring strictly increasing times."
+    },
+    {
+      "id": "bug_03",
+      "description": "Backward total(now) is allowed instead of raising."
+    },
+    {
+      "id": "bug_04",
+      "description": "Zero-value adds are ignored without advancing time."
+    },
+    {
+      "id": "bug_05",
+      "description": "Allows zero or negative window sizes."
+    },
+    {
+      "id": "bug_06",
+      "description": "Treats bool values as invalid even though bool is an int subtype."
+    }
+  ]
+}

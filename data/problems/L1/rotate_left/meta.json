@@ -1,0 +1,82 @@
+{
+  "slug": "rotate_left",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_left"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        -1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [],
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates right instead of left for nonzero shifts"
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses n-1 for modulo, breaking full-length and large rotations"
+    },
+    {
+      "id": "bug_03",
+      "description": "Negative k is forced positive instead of rotating right naturally"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "interval_set",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalSet"
+  ],
+  "sample_inputs": [
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "add fails to merge touching intervals; only overlapping ones merge"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove uses inclusive right remainder start, leaving removed endpoint behind"
+    },
+    {
+      "id": "bug_03",
+      "description": "contains excludes interval endpoints"
+    },
+    {
+      "id": "bug_04",
+      "description": "remove does not swap reversed bounds"
+    },
+    {
+      "id": "bug_05",
+      "description": "add forgets to append merged interval when it consumed later ranges"
+    },
+    {
+      "id": "bug_06",
+      "description": "ranges exposes internal lists instead of deep-copying them"
+    }
+  ]
+}

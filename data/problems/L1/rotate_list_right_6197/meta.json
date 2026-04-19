@@ -1,0 +1,86 @@
+{
+  "slug": "rotate_list_right",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_right"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        -1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [],
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          9,
+          8,
+          7,
+          6
+        ],
+        6
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Uses left rotation for positive k instead of right rotation."
+    },
+    {
+      "id": "bug_02",
+      "description": "Incorrectly treats negative k as positive magnitude."
+    },
+    {
+      "id": "bug_03",
+      "description": "Fails to reduce k modulo length before slicing."
+    },
+    {
+      "id": "bug_04",
+      "description": "Returns input unchanged when k is a multiple of length or length plus one."
+    }
+  ]
+}

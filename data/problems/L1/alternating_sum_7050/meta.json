@@ -1,0 +1,78 @@
+{
+  "slug": "alternating_sum",
+  "level": "L1",
+  "entrypoints": [
+    "alternating_sum"
+  ],
+  "sample_inputs": [
+    {
+      "call": "alternating_sum",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          10,
+          -2,
+          7,
+          -1
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          1.5,
+          0.5,
+          2.0
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Starts with subtraction instead of addition."
+    },
+    {
+      "id": "bug_02",
+      "description": "Flips signs only after the second element, skewing later terms."
+    },
+    {
+      "id": "bug_03",
+      "description": "Alternates from the end of the list instead of the beginning."
+    },
+    {
+      "id": "bug_04",
+      "description": "Uses absolute values, breaking behavior for negative numbers."
+    }
+  ]
+}

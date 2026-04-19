@@ -1,0 +1,1 @@
+Write a function first_unique_char(s) that returns the first character in the string s that appears exactly once in the whole string. If no such character exists, return an empty string "". Comparison is case-sensitive, and all characters count, including spaces, digits, and punctuation. For an empty string, return "".

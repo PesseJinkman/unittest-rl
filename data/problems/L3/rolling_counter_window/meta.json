@@ -1,0 +1,56 @@
+{
+  "slug": "rolling_counter_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Prunes boundary timestamp too early by using <= cutoff."
+    },
+    {
+      "id": "bug_02",
+      "description": "Rejects equal timestamps instead of allowing accumulation."
+    },
+    {
+      "id": "bug_03",
+      "description": "Overwrites same-timestamp count instead of accumulating it."
+    },
+    {
+      "id": "bug_04",
+      "description": "Prunes before adding, so newly advanced timestamps keep expired data."
+    },
+    {
+      "id": "bug_05",
+      "description": "count_at returns counts for any retained ts up to query, not exact match."
+    },
+    {
+      "id": "bug_06",
+      "description": "total ignores pruning, leaving expired counts after time advances."
+    }
+  ]
+}

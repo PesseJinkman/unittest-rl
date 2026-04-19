@@ -1,5 +1,5 @@
 openai:
-  model: gpt-5
+  model: gpt-5.4
   temperature: 1.0
   max_retries: 3
   request_timeout_s: 120

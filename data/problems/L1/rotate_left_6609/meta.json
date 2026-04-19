@@ -1,0 +1,73 @@
+{
+  "slug": "rotate_left",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_left"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        6
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          10,
+          20,
+          30
+        ],
+        -1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [],
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Uses n-1 for wraparound, giving wrong results for k larger than length"
+    },
+    {
+      "id": "bug_02",
+      "description": "Treats negative k as zero instead of rotating right"
+    },
+    {
+      "id": "bug_03",
+      "description": "Rotates right instead of left by using the wrong slice direction"
+    },
+    {
+      "id": "bug_04",
+      "description": "Off-by-one slice starts at k+1, skipping one extra element"
+    }
+  ]
+}

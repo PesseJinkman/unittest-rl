@@ -1,0 +1,56 @@
+{
+  "slug": "windowed_counter",
+  "level": "L3",
+  "entrypoints": [
+    "WindowCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "WindowCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "WindowCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "WindowCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Expires boundary tick too early by using <= cutoff."
+    },
+    {
+      "id": "bug_02",
+      "description": "add overwrites current tick count instead of accumulating."
+    },
+    {
+      "id": "bug_03",
+      "description": "advance allows zero steps instead of rejecting it."
+    },
+    {
+      "id": "bug_04",
+      "description": "Rejects add(0) though zero should be allowed."
+    },
+    {
+      "id": "bug_05",
+      "description": "advance moves one extra tick, expiring data too soon."
+    },
+    {
+      "id": "bug_06",
+      "description": "total returns only current tick count, not whole window sum."
+    }
+  ]
+}

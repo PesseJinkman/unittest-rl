@@ -1,0 +1,1 @@
+Write a function alternating_sum(nums) that returns the sum of a list of integers or floats by alternating signs from left to right: add the 1st element, subtract the 2nd, add the 3rd, subtract the 4th, and so on. An empty list returns 0. Preserve normal Python numeric behavior for ints and floats. Do not modify the input list.

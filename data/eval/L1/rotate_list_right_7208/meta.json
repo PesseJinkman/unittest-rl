@@ -1,0 +1,86 @@
+{
+  "slug": "rotate_list_right",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_list_right"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        6
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [],
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        0
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates left instead of right by using the wrong slices."
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses k directly and ignores modulo reduction for large rotations."
+    },
+    {
+      "id": "bug_03",
+      "description": "Returns the original list unchanged when k equals the list length plus more."
+    },
+    {
+      "id": "bug_04",
+      "description": "Off-by-one in slice boundary drops one element into the wrong side."
+    }
+  ]
+}

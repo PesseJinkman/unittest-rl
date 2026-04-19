@@ -1,0 +1,56 @@
+{
+  "slug": "rolling_stats_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingWindowStats"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingWindowStats",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindowStats",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindowStats",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts when size reaches capacity, shrinking effective window by one"
+    },
+    {
+      "id": "bug_02",
+      "description": "Forgets to subtract evicted value from running sum"
+    },
+    {
+      "id": "bug_03",
+      "description": "mean uses capacity instead of current length before window fills"
+    },
+    {
+      "id": "bug_04",
+      "description": "minmax initializes bounds to 0, wrong for all-positive or all-negative data"
+    },
+    {
+      "id": "bug_05",
+      "description": "values exposes newest-to-oldest order instead of oldest-to-newest"
+    },
+    {
+      "id": "bug_06",
+      "description": "clear empties deque but leaves stale sum affecting later means"
+    }
+  ]
+}

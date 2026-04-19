@@ -1,0 +1,83 @@
+{
+  "slug": "rotate_list_right",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_list_right"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        -1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [],
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        7
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates left for positive k by slicing from the front instead of the end"
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses abs(k), so negative rotations behave like positive ones"
+    },
+    {
+      "id": "bug_04",
+      "description": "Forgets modulo reduction, so large k can produce wrong order"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "longest_common_prefix",
+  "level": "L1",
+  "entrypoints": [
+    "longest_common_prefix"
+  ],
+  "sample_inputs": [
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        [
+          "flower",
+          "flow",
+          "flight"
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        [
+          "dog",
+          "racecar",
+          "car"
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        [
+          "interspecies",
+          "interstellar",
+          "interstate"
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        [
+          "solo"
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_02",
+      "description": "Stops one character too early when trimming the common prefix."
+    },
+    {
+      "id": "bug_03",
+      "description": "Incorrectly returns the first word unchanged when only one input string is given."
+    }
+  ]
+}

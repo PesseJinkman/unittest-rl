@@ -1,0 +1,60 @@
+{
+  "slug": "rolling_window_counter",
+  "level": "L3",
+  "entrypoints": [
+    "RollingCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Expires boundary timestamp too early by using <= cutoff."
+    },
+    {
+      "id": "bug_02",
+      "description": "Allows zero or negative hit values instead of rejecting negatives only partially."
+    },
+    {
+      "id": "bug_03",
+      "description": "Treats provided total(ts) as exclusive by advancing to ts-1."
+    },
+    {
+      "id": "bug_04",
+      "description": "Rejects same-timestamp hits by requiring strictly increasing timestamps."
+    },
+    {
+      "id": "bug_05",
+      "description": "Does not update latest timestamp on total(ts), so expiry lags after queries."
+    },
+    {
+      "id": "bug_06",
+      "description": "Ignores zero-value hits and fails to advance time on them."
+    },
+    {
+      "id": "bug_07",
+      "description": "Counts only latest bucket when multiple hits share a timestamp."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "interval_set",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalSet"
+  ],
+  "sample_inputs": [
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "add merges overlaps but not directly adjacent intervals"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove uses inclusive right remainder start, leaving deleted endpoint behind"
+    },
+    {
+      "id": "bug_03",
+      "description": "contains treats interval end as exclusive"
+    },
+    {
+      "id": "bug_04",
+      "description": "remove fails to split an interval when deletion is strictly inside"
+    },
+    {
+      "id": "bug_05",
+      "description": "add does not normalize reversed endpoints"
+    },
+    {
+      "id": "bug_06",
+      "description": "spans returns the internal list, allowing external mutation"
+    }
+  ]
+}

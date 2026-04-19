@@ -1,0 +1,1 @@
+Write a function count_vowels(text) that returns the number of English vowels in the input string. Count both lowercase and uppercase vowels: a, e, i, o, u. All other characters, including y, spaces, digits, punctuation, and accented letters, do not count. Return 0 for an empty string. The function should not modify the input and should work for any Python string.

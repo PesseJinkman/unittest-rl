@@ -1,0 +1,51 @@
+{
+  "slug": "collapse_spaces",
+  "level": "L1",
+  "entrypoints": [
+    "collapse_spaces"
+  ],
+  "sample_inputs": [
+    {
+      "call": "collapse_spaces",
+      "args": [
+        "a  b   c"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "collapse_spaces",
+      "args": [
+        "  hello   world  "
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "collapse_spaces",
+      "args": [
+        "no_extra_spaces"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "collapse_spaces",
+      "args": [
+        "x\t  y\n   z"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Strips leading and trailing spaces after collapsing internal runs."
+    },
+    {
+      "id": "bug_02",
+      "description": "Treats any whitespace as collapsible, changing tabs and newlines too."
+    },
+    {
+      "id": "bug_03",
+      "description": "Only collapses pairs of spaces, leaving longer runs partially reduced."
+    }
+  ]
+}

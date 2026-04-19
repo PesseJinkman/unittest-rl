@@ -1,0 +1,83 @@
+{
+  "slug": "rotate_left",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_left"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        6
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        -1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [],
+        3
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates right instead of left for positive shifts"
+    },
+    {
+      "id": "bug_02",
+      "description": "Fails to wrap shifts with modulo when k exceeds length"
+    },
+    {
+      "id": "bug_04",
+      "description": "Treats negative k as zero instead of rotating right"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "count_vowels",
+  "level": "L1",
+  "entrypoints": [
+    "count_vowels"
+  ],
+  "sample_inputs": [
+    {
+      "call": "count_vowels",
+      "args": [
+        "hello"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowels",
+      "args": [
+        "AEIOU xyz"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowels",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowels",
+      "args": [
+        "rhythm"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Counts y as a vowel too"
+    },
+    {
+      "id": "bug_02",
+      "description": "Forgets to handle uppercase letters"
+    },
+    {
+      "id": "bug_03",
+      "description": "Misses the letter u in the vowel set"
+    },
+    {
+      "id": "bug_04",
+      "description": "Stops counting after the first vowel found"
+    }
+  ]
+}

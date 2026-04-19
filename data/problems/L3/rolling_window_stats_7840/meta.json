@@ -1,0 +1,60 @@
+{
+  "slug": "rolling_window_stats",
+  "level": "L3",
+  "entrypoints": [
+    "RollingWindow"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingWindow",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindow",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindow",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts when size reaches capacity, so window holds at most capacity-1 after some pushes."
+    },
+    {
+      "id": "bug_02",
+      "description": "Min queue uses >=, losing duplicate minima and breaking min after popping one duplicate."
+    },
+    {
+      "id": "bug_03",
+      "description": "pop_oldest removes newest element instead of oldest, corrupting order-dependent behavior."
+    },
+    {
+      "id": "bug_04",
+      "description": "stats returns integer floor average instead of true float division."
+    },
+    {
+      "id": "bug_05",
+      "description": "Allows zero capacity by only rejecting negatives."
+    },
+    {
+      "id": "bug_06",
+      "description": "Eviction subtracts current x from sum instead of removed oldest."
+    },
+    {
+      "id": "bug_07",
+      "description": "stats on empty returns zeroed dict instead of None."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "interval_counter_set",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalCounterSet"
+  ],
+  "sample_inputs": [
+    {
+      "call": "IntervalCounterSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalCounterSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalCounterSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalCounterSet",
+      "args": [],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "add fails to merge merely adjacent intervals"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove keeps endpoints inside removed range"
+    },
+    {
+      "id": "bug_03",
+      "description": "contains treats interval end as exclusive"
+    },
+    {
+      "id": "bug_04",
+      "description": "total_covered uses half-open length formula"
+    },
+    {
+      "id": "bug_05",
+      "description": "remove does nothing when start>end instead of swapping"
+    },
+    {
+      "id": "bug_06",
+      "description": "add appends merged interval only if inserted before some existing one"
+    }
+  ]
+}

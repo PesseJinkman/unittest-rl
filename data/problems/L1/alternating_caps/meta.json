@@ -1,0 +1,62 @@
+{
+  "slug": "alternating_caps",
+  "level": "L1",
+  "entrypoints": [
+    "alternating_caps"
+  ],
+  "sample_inputs": [
+    {
+      "call": "alternating_caps",
+      "args": [
+        "hello world"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_caps",
+      "args": [
+        "a1b2c3"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_caps",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_caps",
+      "args": [
+        "XYZ!"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_caps",
+      "args": [
+        "éclair-ßeta"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Non-letter characters incorrectly flip the alternating state."
+    },
+    {
+      "id": "bug_02",
+      "description": "Starts alternation with lowercase instead of uppercase."
+    },
+    {
+      "id": "bug_03",
+      "description": "Uses swapcase, which mishandles letters already in the desired case."
+    },
+    {
+      "id": "bug_04",
+      "description": "Digits are treated like letters for alternation counting."
+    }
+  ]
+}

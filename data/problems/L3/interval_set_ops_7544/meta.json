@@ -1,0 +1,50 @@
+{
+  "slug": "interval_set_ops",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalSet"
+  ],
+  "sample_inputs": [
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "add fails to merge merely adjacent intervals"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove trims right remainder starting at end instead of end+1"
+    },
+    {
+      "id": "bug_03",
+      "description": "contains excludes interval endpoints"
+    },
+    {
+      "id": "bug_04",
+      "description": "add does not swap reversed endpoints"
+    },
+    {
+      "id": "bug_05",
+      "description": "remove drops left remainder when splitting an interval"
+    },
+    {
+      "id": "bug_06",
+      "description": "intervals returns internal list directly, exposing state"
+    }
+  ]
+}

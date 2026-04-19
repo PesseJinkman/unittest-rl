@@ -1,0 +1,58 @@
+{
+  "slug": "sum_of_digit_characters",
+  "level": "L1",
+  "entrypoints": [
+    "sum_of_digit_characters"
+  ],
+  "sample_inputs": [
+    {
+      "call": "sum_of_digit_characters",
+      "args": [
+        "a12b3"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_of_digit_characters",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_of_digit_characters",
+      "args": [
+        "room 404!"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_of_digit_characters",
+      "args": [
+        "no digits here"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_of_digit_characters",
+      "args": [
+        "007 bond"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Treats consecutive digits as whole numbers instead of summing each digit separately"
+    },
+    {
+      "id": "bug_03",
+      "description": "Stops scanning after the first non-digit following any digit"
+    },
+    {
+      "id": "bug_04",
+      "description": "Counts digit characters instead of adding their numeric values"
+    }
+  ]
+}

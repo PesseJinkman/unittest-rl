@@ -1,0 +1,1 @@
+Write a function rotate_right(items, k) that returns a new list containing the elements of items rotated to the right by k positions. Do not modify the input list. If items is empty, return an empty list. k may be any integer: values larger than the list length should wrap around, and negative k should rotate left accordingly. Preserve element order relative to the rotation.

@@ -1,0 +1,1 @@
+Write a function rotate_left(items, k) that returns a new list with the elements of items rotated k positions to the left. A left rotation by 1 moves the first element to the end. If items is empty, return an empty list. k may be any integer: use modulo by the list length so large values and negative values work naturally. Do not modify the input list.

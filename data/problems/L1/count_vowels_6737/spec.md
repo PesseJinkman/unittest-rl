@@ -1,0 +1,1 @@
+Write a function count_vowels(text) that returns the number of vowels in the input string. Count the English vowels a, e, i, o, u in both lowercase and uppercase. Any other character, including y, digits, spaces, punctuation, and accented letters, does not count. Return 0 for the empty string.

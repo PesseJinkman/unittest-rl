@@ -1,0 +1,62 @@
+{
+  "slug": "count_vowel_groups",
+  "level": "L1",
+  "entrypoints": [
+    "count_vowel_groups"
+  ],
+  "sample_inputs": [
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        "sky"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        "apple"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        "queue"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        "A-e i"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Counts every vowel character instead of contiguous groups"
+    },
+    {
+      "id": "bug_02",
+      "description": "Ignores uppercase vowels"
+    },
+    {
+      "id": "bug_03",
+      "description": "Fails to reset group state on non-vowel characters"
+    },
+    {
+      "id": "bug_04",
+      "description": "Treats y as a vowel too"
+    }
+  ]
+}

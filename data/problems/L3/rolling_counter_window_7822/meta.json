@@ -1,0 +1,56 @@
+{
+  "slug": "rolling_counter_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Expires events only when older than cutoff, wrongly keeping boundary timestamp."
+    },
+    {
+      "id": "bug_02",
+      "description": "Rejects equal timestamps by requiring strictly increasing timestamps."
+    },
+    {
+      "id": "bug_03",
+      "description": "total(ts,key=None) returns number of active keys instead of sum of active amounts."
+    },
+    {
+      "id": "bug_04",
+      "description": "add returns global total after insert rather than that key's current total."
+    },
+    {
+      "id": "bug_05",
+      "description": "Expiration subtracts 1 per expired event, ignoring the event amount."
+    },
+    {
+      "id": "bug_06",
+      "description": "Accepts amount 0 by only rejecting negative amounts."
+    }
+  ]
+}

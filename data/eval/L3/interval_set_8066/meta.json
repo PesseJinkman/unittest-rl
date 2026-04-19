@@ -1,0 +1,55 @@
+{
+  "slug": "interval_set",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalSet"
+  ],
+  "sample_inputs": [
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "add fails to merge touching intervals, only overlapping ones"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove treats upper bound as exclusive when keeping right fragment"
+    },
+    {
+      "id": "bug_03",
+      "description": "remove drops left remainder when cutting through an interval"
+    },
+    {
+      "id": "bug_04",
+      "description": "contains excludes interval endpoints"
+    },
+    {
+      "id": "bug_05",
+      "description": "add places new interval after later disjoint block, breaking sort/order"
+    },
+    {
+      "id": "bug_06",
+      "description": "remove of reversed bounds does nothing because bounds are not normalized"
+    }
+  ]
+}

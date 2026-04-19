@@ -1,0 +1,1 @@
+Write a function sum_even_numbers(nums) that returns the sum of all even integers in the input list. Odd integers contribute nothing. If the list is empty, return 0. Negative even numbers should be included normally. The function should work for any list of integers and must not modify the input list.

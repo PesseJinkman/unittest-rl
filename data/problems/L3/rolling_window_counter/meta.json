@@ -1,0 +1,67 @@
+{
+  "slug": "rolling_window_counter",
+  "level": "L3",
+  "entrypoints": [
+    "RollingCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingCounter",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Uses exclusive lower bound, dropping boundary events one step too early"
+    },
+    {
+      "id": "bug_02",
+      "description": "Rejects equal timestamps on add instead of allowing non-decreasing order"
+    },
+    {
+      "id": "bug_03",
+      "description": "Allows querying past time, violating monotonic query invariant"
+    },
+    {
+      "id": "bug_04",
+      "description": "Default total() uses last queried time instead of latest added timestamp"
+    },
+    {
+      "id": "bug_05",
+      "description": "Prunes only on total/query, so add() can return sums including expired events"
+    },
+    {
+      "id": "bug_06",
+      "description": "Disallows zero window_size only after init, accepting invalid negative by mistake"
+    },
+    {
+      "id": "bug_07",
+      "description": "Advancing add at same timestamp re-prunes and can move last_time incorrectly"
+    }
+  ]
+}

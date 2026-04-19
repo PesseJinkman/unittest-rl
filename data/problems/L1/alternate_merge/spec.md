@@ -1,0 +1,1 @@
+Write a function alternate_merge(a, b) that returns a new string built by alternating characters from strings a and b, starting with a. After one string runs out, append the remaining characters from the other string unchanged. If either input is empty, return the other. Preserve character order exactly, and treat all characters literally, including spaces or punctuation.

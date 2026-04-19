@@ -1,0 +1,56 @@
+{
+  "slug": "rolling_median_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingMedian"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingMedian",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedian",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedian",
+      "args": [
+        4
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts when size reaches capacity, shrinking effective window by one"
+    },
+    {
+      "id": "bug_02",
+      "description": "For even counts returns upper middle instead of average"
+    },
+    {
+      "id": "bug_03",
+      "description": "Removes newest inserted duplicate due to bisect_right-1"
+    },
+    {
+      "id": "bug_04",
+      "description": "clear only resets queue, leaving stale sorted values"
+    },
+    {
+      "id": "bug_05",
+      "description": "Rejects bools differently by using type(...) is not int check"
+    },
+    {
+      "id": "bug_06",
+      "description": "median on empty returns None instead of raising"
+    }
+  ]
+}

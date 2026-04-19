@@ -1,0 +1,60 @@
+{
+  "slug": "window_counter",
+  "level": "L3",
+  "entrypoints": [
+    "WindowCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "WindowCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "WindowCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "WindowCounter",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts when size reaches capacity, shrinking usable window by one"
+    },
+    {
+      "id": "bug_02",
+      "description": "average divides by capacity instead of current size"
+    },
+    {
+      "id": "bug_03",
+      "description": "last(n) returns newest-to-oldest order instead of oldest-to-newest"
+    },
+    {
+      "id": "bug_04",
+      "description": "Does not reject zero capacity at construction"
+    },
+    {
+      "id": "bug_05",
+      "description": "Evicts newest item instead of oldest when over capacity"
+    },
+    {
+      "id": "bug_06",
+      "description": "last(0) incorrectly returns full window"
+    },
+    {
+      "id": "bug_07",
+      "description": "average on empty returns 0.0 instead of raising"
+    }
+  ]
+}

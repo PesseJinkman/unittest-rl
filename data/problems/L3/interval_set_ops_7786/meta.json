@@ -1,0 +1,147 @@
+{
+  "slug": "interval_set_ops",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalSet",
+    "exercise_interval_set"
+  ],
+  "sample_inputs": [
+    {
+      "call": "exercise_interval_set",
+      "args": [
+        [
+          [
+            "add",
+            1,
+            5
+          ],
+          [
+            "add",
+            5,
+            8
+          ],
+          [
+            "spans"
+          ]
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "exercise_interval_set",
+      "args": [
+        [
+          [
+            "add",
+            1,
+            10
+          ],
+          [
+            "remove",
+            3,
+            7
+          ],
+          [
+            "spans"
+          ],
+          [
+            "contains",
+            2
+          ],
+          [
+            "contains",
+            5
+          ],
+          [
+            "contains",
+            8
+          ]
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "exercise_interval_set",
+      "args": [
+        [
+          [
+            "add",
+            1,
+            3
+          ],
+          [
+            "add",
+            6,
+            9
+          ],
+          [
+            "add",
+            2,
+            7
+          ],
+          [
+            "spans"
+          ]
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "exercise_interval_set",
+      "args": [
+        [
+          [
+            "add",
+            2,
+            4
+          ],
+          [
+            "remove",
+            2,
+            4
+          ],
+          [
+            "spans"
+          ]
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "exercise_interval_set",
+      "args": [
+        [
+          [
+            "add",
+            0,
+            2
+          ],
+          [
+            "add",
+            4,
+            6
+          ],
+          [
+            "remove",
+            1,
+            5
+          ],
+          [
+            "spans"
+          ]
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Fails to merge touching intervals on add"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove keeps boundary point when cut starts at interval start"
+    }
+  ]
+}

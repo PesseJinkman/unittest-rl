@@ -1,0 +1,86 @@
+{
+  "slug": "rotate_left",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_left"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        -1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [],
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_left",
+      "args": [
+        [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        6
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates right instead of left for positive shifts"
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses modulo by n-1 for non-empty lists longer than 1"
+    },
+    {
+      "id": "bug_03",
+      "description": "Treats exact multiples of length as one-step rotation"
+    },
+    {
+      "id": "bug_04",
+      "description": "Negative k is converted with abs, losing reverse-direction behavior"
+    }
+  ]
+}

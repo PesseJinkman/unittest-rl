@@ -1,0 +1,79 @@
+{
+  "slug": "rotate_list_right",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_right"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        -1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [],
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          9
+        ],
+        100
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates left for positive k by slicing from the front instead of the end."
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses abs(k), so negative rotations are treated as right rotations."
+    },
+    {
+      "id": "bug_04",
+      "description": "Off-by-one in the split point rotates by k-1 positions for nonzero k."
+    }
+  ]
+}

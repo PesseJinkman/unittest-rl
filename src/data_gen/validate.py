@@ -140,9 +140,10 @@ def validate_problem(
     ref_out = _run_harness(ref_code, harness, sample_input_timeout_s)
     if ref_out is None:
         return ValidationResult(False, "reference_timeout_or_crash")
-    # at least one input must succeed
-    if not any(x["ok"] for x in ref_out):
-        return ValidationResult(False, "reference_fails_all_inputs")
+    # reference must succeed on every declared sample input (contract in synth prompt)
+    if not all(x["ok"] for x in ref_out):
+        bad = next((x["exc"] for x in ref_out if not x["ok"]), None)
+        return ValidationResult(False, f"reference_fails_sample:{bad}")
 
     variants = problem["buggy_variants"]
     if not isinstance(variants, list) or len(variants) < 2:

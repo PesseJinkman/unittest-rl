@@ -1,0 +1,110 @@
+{
+  "slug": "merge_intervals",
+  "level": "L2",
+  "entrypoints": [
+    "merge_intervals"
+  ],
+  "sample_inputs": [
+    {
+      "call": "merge_intervals",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            15,
+            18
+          ]
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "merge_intervals",
+      "args": [
+        [
+          [
+            5,
+            7
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "merge_intervals",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "merge_intervals",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "merge_intervals",
+      "args": [
+        [
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            7,
+            7
+          ]
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Incorrectly merges adjacent intervals using start <= last_end + 1"
+    },
+    {
+      "id": "bug_03",
+      "description": "Rejects zero-length intervals by requiring start < end"
+    },
+    {
+      "id": "bug_04",
+      "description": "Returns tuples instead of lists for merged intervals"
+    }
+  ]
+}

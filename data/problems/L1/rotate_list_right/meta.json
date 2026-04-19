@@ -1,0 +1,82 @@
+{
+  "slug": "rotate_list_right",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_right"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        6
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [],
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_right",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        0
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates left instead of right using the same shift value."
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses k directly without modulo, so large k can give wrong order."
+    },
+    {
+      "id": "bug_04",
+      "description": "Off by one in the split point for nonzero rotations."
+    }
+  ]
+}

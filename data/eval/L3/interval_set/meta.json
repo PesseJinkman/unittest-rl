@@ -1,0 +1,59 @@
+{
+  "slug": "interval_set",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalSet"
+  ],
+  "sample_inputs": [
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "add does not merge touching neighbors, only strict overlaps"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove treats end as inclusive, removing one extra point"
+    },
+    {
+      "id": "bug_03",
+      "description": "contains wrongly includes the interval end boundary"
+    },
+    {
+      "id": "bug_04",
+      "description": "remove drops left fragment when deletion splits an interval"
+    },
+    {
+      "id": "bug_05",
+      "description": "add skips merging an interval that starts exactly at new end"
+    },
+    {
+      "id": "bug_06",
+      "description": "invalid zero-length remove clears exact matching interval"
+    },
+    {
+      "id": "bug_07",
+      "description": "intervals exposes internal lists instead of returning a deep copy"
+    }
+  ]
+}

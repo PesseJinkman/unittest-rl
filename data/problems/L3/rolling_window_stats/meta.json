@@ -1,0 +1,60 @@
+{
+  "slug": "rolling_window_stats",
+  "level": "L3",
+  "entrypoints": [
+    "RollingWindow"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingWindow",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindow",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindow",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts when size reaches capacity instead of exceeding it"
+    },
+    {
+      "id": "bug_02",
+      "description": "Evicts newest item instead of oldest when over capacity"
+    },
+    {
+      "id": "bug_03",
+      "description": "Rejects capacity 1 by requiring capacity > 1"
+    },
+    {
+      "id": "bug_04",
+      "description": "stats returns 0 instead of None for empty min/max/avg"
+    },
+    {
+      "id": "bug_05",
+      "description": "snapshot returns newest-to-oldest order"
+    },
+    {
+      "id": "bug_06",
+      "description": "Average uses capacity as divisor once full"
+    },
+    {
+      "id": "bug_07",
+      "description": "Forgets to subtract evicted value from running sum"
+    }
+  ]
+}

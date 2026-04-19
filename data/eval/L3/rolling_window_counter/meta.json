@@ -1,0 +1,56 @@
+{
+  "slug": "rolling_window_counter",
+  "level": "L3",
+  "entrypoints": [
+    "RollingWindowCounter"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingWindowCounter",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindowCounter",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindowCounter",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Expires boundary events too early by using <= cutoff"
+    },
+    {
+      "id": "bug_02",
+      "description": "Rejects equal timestamps by requiring strictly increasing times"
+    },
+    {
+      "id": "bug_03",
+      "description": "Expires before appending, leaving a too-old event when a big jump occurs"
+    },
+    {
+      "id": "bug_04",
+      "description": "count() tracks summed values instead of number of active events"
+    },
+    {
+      "id": "bug_05",
+      "description": "Disallows negative event values even though they are valid"
+    },
+    {
+      "id": "bug_06",
+      "description": "Applies a half-open window by subtracting one extra unit from cutoff"
+    }
+  ]
+}

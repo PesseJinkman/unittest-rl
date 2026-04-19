@@ -1,0 +1,1 @@
+Write a function sum_even_numbers(nums) that returns the sum of all even integers in the input list. Odd numbers contribute nothing. The input may be empty, may contain negative values, and may include 0, which counts as even. Return 0 for an empty list or if no elements are even. Preserve normal Python integer behavior.

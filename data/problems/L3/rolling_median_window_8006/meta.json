@@ -1,0 +1,56 @@
+{
+  "slug": "rolling_median_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingMedian"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingMedian",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedian",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedian",
+      "args": [
+        4
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts newest instead of oldest when window is full"
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses lower middle for even-sized median instead of average"
+    },
+    {
+      "id": "bug_03",
+      "description": "Allows zero size instead of raising ValueError"
+    },
+    {
+      "id": "bug_04",
+      "description": "snapshot returns newest-to-oldest order"
+    },
+    {
+      "id": "bug_05",
+      "description": "Computes median before evicting old item on full window"
+    },
+    {
+      "id": "bug_06",
+      "description": "Removes with bisect_right-1, deleting wrong duplicate occurrence edge case"
+    }
+  ]
+}

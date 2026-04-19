@@ -1,0 +1,85 @@
+{
+  "slug": "rotate_list_right",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_list_right"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        2
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        -1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [],
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          10
+        ],
+        -7
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates left instead of right for nonzero shifts"
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses n-1 for wrapping, causing wrong results on most lengths"
+    },
+    {
+      "id": "bug_03",
+      "description": "Returns original list unchanged when k is negative"
+    },
+    {
+      "id": "bug_04",
+      "description": "Off-by-one slice drops the last element before rotation"
+    }
+  ]
+}

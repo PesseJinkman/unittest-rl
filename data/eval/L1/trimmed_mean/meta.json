@@ -1,0 +1,84 @@
+{
+  "slug": "trimmed_mean",
+  "level": "L1",
+  "entrypoints": [
+    "trimmed_mean"
+  ],
+  "sample_inputs": [
+    {
+      "call": "trimmed_mean",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "trimmed_mean",
+      "args": [
+        [
+          1,
+          10,
+          2,
+          9
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "trimmed_mean",
+      "args": [
+        [
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "trimmed_mean",
+      "args": [
+        [
+          3,
+          1
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "trimmed_mean",
+      "args": [
+        [
+          -5,
+          0,
+          5,
+          10
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Removes all occurrences of min and max instead of one each"
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses original length for averaging after trimming"
+    },
+    {
+      "id": "bug_03",
+      "description": "Returns 0.0 for length 3 lists instead of averaging middle value"
+    },
+    {
+      "id": "bug_04",
+      "description": "Removes two smallest values rather than min and max"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Write a function collapse_spaces(text) that returns a new string where every maximal run of the space character ' ' is replaced by a single space. Preserve all non-space characters exactly, including tabs, newlines, and punctuation. Leading or trailing spaces should become a single leading or trailing space if present. An empty string returns an empty string.

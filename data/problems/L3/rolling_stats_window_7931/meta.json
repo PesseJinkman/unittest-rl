@@ -1,0 +1,56 @@
+{
+  "slug": "rolling_stats_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingStats"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingStats",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingStats",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingStats",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts newest instead of oldest when full, breaking window order semantics"
+    },
+    {
+      "id": "bug_02",
+      "description": "mean divides by capacity instead of current size before window fills"
+    },
+    {
+      "id": "bug_03",
+      "description": "clear forgets to reset running sum, corrupting later means"
+    },
+    {
+      "id": "bug_04",
+      "description": "Accepts zero capacity instead of raising ValueError"
+    },
+    {
+      "id": "bug_05",
+      "description": "max mistakenly returns min, only visible on non-constant windows"
+    },
+    {
+      "id": "bug_06",
+      "description": "values returns newest-to-oldest instead of oldest-to-newest"
+    }
+  ]
+}

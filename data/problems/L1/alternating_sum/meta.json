@@ -1,0 +1,77 @@
+{
+  "slug": "alternating_sum",
+  "level": "L1",
+  "entrypoints": [
+    "alternating_sum"
+  ],
+  "sample_inputs": [
+    {
+      "call": "alternating_sum",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          10,
+          -2,
+          7
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          1.5,
+          0.5,
+          2.0
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Starts with subtraction instead of addition."
+    },
+    {
+      "id": "bug_02",
+      "description": "Flips signs only after the second element, breaking alternating pattern."
+    },
+    {
+      "id": "bug_03",
+      "description": "Adds all elements at even indexes but never subtracts odd ones."
+    },
+    {
+      "id": "bug_04",
+      "description": "Uses index parity but swaps the add/subtract branches."
+    }
+  ]
+}

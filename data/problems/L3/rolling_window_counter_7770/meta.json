@@ -1,0 +1,63 @@
+{
+  "slug": "rolling_window_counter",
+  "level": "L3",
+  "entrypoints": [
+    "HitWindow"
+  ],
+  "sample_inputs": [
+    {
+      "call": "HitWindow",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "HitWindow",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "HitWindow",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "HitWindow",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts boundary timestamp by using <= instead of < in cutoff test"
+    },
+    {
+      "id": "bug_02",
+      "description": "Rejects equal timestamps by requiring strictly increasing add order"
+    },
+    {
+      "id": "bug_03",
+      "description": "count(ts=None) incorrectly recomputes using latest-1 instead of latest"
+    },
+    {
+      "id": "bug_04",
+      "description": "Zero-count add still appends a bucket, affecting later merging behavior"
+    },
+    {
+      "id": "bug_05",
+      "description": "Future count(ts) incorrectly returns current total instead of filtering by ts"
+    },
+    {
+      "id": "bug_06",
+      "description": "Negative counts are accepted and subtract from total instead of raising"
+    }
+  ]
+}

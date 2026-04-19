@@ -1,0 +1,73 @@
+{
+  "slug": "rotate_list_right",
+  "level": "L1",
+  "entrypoints": [
+    "rotate_list_right"
+  ],
+  "sample_inputs": [
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [
+          5,
+          5,
+          7
+        ],
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "rotate_list_right",
+      "args": [
+        [],
+        3
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Rotates left instead of right"
+    },
+    {
+      "id": "bug_02",
+      "description": "Uses k directly and skips modulo reduction"
+    },
+    {
+      "id": "bug_03",
+      "description": "Incorrectly treats full-length rotation as one-step rotation"
+    },
+    {
+      "id": "bug_04",
+      "description": "Drops the last element in the prefix slice"
+    }
+  ]
+}

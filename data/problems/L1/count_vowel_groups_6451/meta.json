@@ -1,0 +1,58 @@
+{
+  "slug": "count_vowel_groups",
+  "level": "L1",
+  "entrypoints": [
+    "count_vowel_groups"
+  ],
+  "sample_inputs": [
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        "hello world"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        "queue"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        "AEi--ouX"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "count_vowel_groups",
+      "args": [
+        "rhythm"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Counts each vowel character instead of contiguous vowel groups."
+    },
+    {
+      "id": "bug_03",
+      "description": "Treats y and Y as vowels, creating extra groups in some words."
+    },
+    {
+      "id": "bug_04",
+      "description": "Fails to reset group state on non-letters, merging across separators."
+    }
+  ]
+}

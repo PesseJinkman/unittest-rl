@@ -1,0 +1,1 @@
+Write a function alternating_caps(text) that returns a new string where alphabetic characters alternate uppercase then lowercase, starting with uppercase for the first letter seen. Non-letter characters are copied unchanged and do not affect the alternation pattern. Treat both ASCII and non-ASCII letters as alphabetic using str.isalpha(). An empty string returns an empty string.

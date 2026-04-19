@@ -1,0 +1,8 @@
+def count_vowels(text):
+    vowels = "aeiouAEIOU"
+    total = 0
+    for ch in text:
+        if ch in vowels:
+            total += 1
+            break
+    return total

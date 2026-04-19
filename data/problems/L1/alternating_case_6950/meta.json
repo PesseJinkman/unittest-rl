@@ -1,0 +1,62 @@
+{
+  "slug": "alternating_case",
+  "level": "L1",
+  "entrypoints": [
+    "alternating_case"
+  ],
+  "sample_inputs": [
+    {
+      "call": "alternating_case",
+      "args": [
+        "hello"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_case",
+      "args": [
+        "a1b2c3"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_case",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_case",
+      "args": [
+        "XYZ! ok"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_case",
+      "args": [
+        "123-+="
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Toggles case state for every character, including non-letters"
+    },
+    {
+      "id": "bug_02",
+      "description": "Starts alternation with lowercase instead of uppercase"
+    },
+    {
+      "id": "bug_03",
+      "description": "Uses isalnum, so digits wrongly affect alternation and casing path"
+    },
+    {
+      "id": "bug_04",
+      "description": "Lowercases non-selected letters but forgets to toggle after uppercase"
+    }
+  ]
+}

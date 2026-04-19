@@ -1,0 +1,55 @@
+{
+  "slug": "interval_set_tracker",
+  "level": "L3",
+  "entrypoints": [
+    "IntervalSet"
+  ],
+  "sample_inputs": [
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    },
+    {
+      "call": "IntervalSet",
+      "args": [],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "add fails to merge touching intervals, only overlapping ones"
+    },
+    {
+      "id": "bug_02",
+      "description": "remove treats end as inclusive, removing one extra point on the right"
+    },
+    {
+      "id": "bug_03",
+      "description": "contains incorrectly includes the right endpoint"
+    },
+    {
+      "id": "bug_04",
+      "description": "count sums interval endpoints instead of covered lengths"
+    },
+    {
+      "id": "bug_05",
+      "description": "remove drops left remainder when deleting from the middle"
+    },
+    {
+      "id": "bug_06",
+      "description": "intervals exposes internal list directly instead of a copy"
+    }
+  ]
+}

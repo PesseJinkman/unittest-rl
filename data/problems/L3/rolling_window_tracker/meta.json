@@ -1,0 +1,70 @@
+{
+  "slug": "rolling_window_tracker",
+  "level": "L3",
+  "entrypoints": [
+    "RollingWindow"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingWindow",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindow",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindow",
+      "args": [
+        5
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindow",
+      "args": [
+        2
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingWindow",
+      "args": [
+        4
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts when size reaches capacity, losing one item too early"
+    },
+    {
+      "id": "bug_02",
+      "description": "average divides by capacity instead of current item count"
+    },
+    {
+      "id": "bug_03",
+      "description": "resize shrinking removes newest items instead of oldest"
+    },
+    {
+      "id": "bug_04",
+      "description": "values exposes newest-to-oldest order"
+    },
+    {
+      "id": "bug_05",
+      "description": "resize rejects zero but silently accepts negative capacities"
+    },
+    {
+      "id": "bug_06",
+      "description": "total recomputes from all historical adds, ignoring evictions"
+    }
+  ]
+}

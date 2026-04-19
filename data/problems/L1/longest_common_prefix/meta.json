@@ -1,0 +1,71 @@
+{
+  "slug": "longest_common_prefix",
+  "level": "L1",
+  "entrypoints": [
+    "longest_common_prefix"
+  ],
+  "sample_inputs": [
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        [
+          "flower",
+          "flow",
+          "flight"
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        [
+          "dog",
+          "racecar",
+          "car"
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        [
+          "interspace"
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "longest_common_prefix",
+      "args": [
+        [
+          "",
+          "b"
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Returns the shortest whole string if all words start with its first character."
+    },
+    {
+      "id": "bug_03",
+      "description": "Incorrectly returns the first string unchanged when given one word."
+    },
+    {
+      "id": "bug_04",
+      "description": "Treats an empty input list as invalid and returns None instead of empty string."
+    }
+  ]
+}

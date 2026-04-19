@@ -1,0 +1,62 @@
+{
+  "slug": "middle_characters",
+  "level": "L1",
+  "entrypoints": [
+    "middle_characters"
+  ],
+  "sample_inputs": [
+    {
+      "call": "middle_characters",
+      "args": [
+        "abcde"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "middle_characters",
+      "args": [
+        "abcd"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "middle_characters",
+      "args": [
+        "x"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "middle_characters",
+      "args": [
+        ""
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "middle_characters",
+      "args": [
+        "ab"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "For even lengths, returns only the right-middle character instead of both middle characters."
+    },
+    {
+      "id": "bug_02",
+      "description": "For odd lengths, returns the left half-middle slice of length 2 instead of the single center character."
+    },
+    {
+      "id": "bug_03",
+      "description": "Uses 1-based style midpoint, shifting the result right for odd-length strings."
+    },
+    {
+      "id": "bug_04",
+      "description": "Incorrectly treats length-1 strings as empty and returns an empty string."
+    }
+  ]
+}

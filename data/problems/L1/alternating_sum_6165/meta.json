@@ -1,0 +1,78 @@
+{
+  "slug": "alternating_sum",
+  "level": "L1",
+  "entrypoints": [
+    "alternating_sum"
+  ],
+  "sample_inputs": [
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          10,
+          -2,
+          7,
+          -1
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternating_sum",
+      "args": [
+        [
+          1.5,
+          0.5,
+          2.0
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Starts with subtraction instead of addition."
+    },
+    {
+      "id": "bug_02",
+      "description": "Alternates based on index parity but uses the wrong branch signs."
+    },
+    {
+      "id": "bug_03",
+      "description": "Stops before processing the final element."
+    },
+    {
+      "id": "bug_04",
+      "description": "Never flips the sign after each element."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "alternate_merge",
+  "level": "L1",
+  "entrypoints": [
+    "alternate_merge"
+  ],
+  "sample_inputs": [
+    {
+      "call": "alternate_merge",
+      "args": [
+        "abc",
+        "XYZ"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternate_merge",
+      "args": [
+        "hello",
+        "12"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternate_merge",
+      "args": [
+        "",
+        "test"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternate_merge",
+      "args": [
+        "ace",
+        "bdfgh"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternate_merge",
+      "args": [
+        "A!",
+        "?"
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Starts alternating with b instead of a."
+    },
+    {
+      "id": "bug_02",
+      "description": "Drops leftover characters from the second string."
+    },
+    {
+      "id": "bug_03",
+      "description": "Skips the final paired character by using shorter loop bounds."
+    },
+    {
+      "id": "bug_04",
+      "description": "Reverses any leftover suffix before appending it."
+    }
+  ]
+}

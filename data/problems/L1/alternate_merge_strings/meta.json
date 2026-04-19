@@ -1,0 +1,59 @@
+{
+  "slug": "alternate_merge_strings",
+  "level": "L1",
+  "entrypoints": [
+    "alternate_merge"
+  ],
+  "sample_inputs": [
+    {
+      "call": "alternate_merge",
+      "args": [
+        "abc",
+        "XYZ"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternate_merge",
+      "args": [
+        "hello",
+        "12"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternate_merge",
+      "args": [
+        "",
+        "cat"
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "alternate_merge",
+      "args": [
+        "Q",
+        ""
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Starts merging with b instead of a"
+    },
+    {
+      "id": "bug_02",
+      "description": "Stops at the shorter string and drops the remaining tail"
+    },
+    {
+      "id": "bug_03",
+      "description": "Appends only the leftover from a, forgetting leftover from b"
+    },
+    {
+      "id": "bug_04",
+      "description": "Skips the last index by iterating one time too few"
+    }
+  ]
+}

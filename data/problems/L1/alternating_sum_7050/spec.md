@@ -1,0 +1,1 @@
+Write a function alternating_sum(nums) that returns the sum of a list of numbers by adding and subtracting values in alternating order, starting with addition for the first element. So the result is nums[0] - nums[1] + nums[2] - nums[3] and so on. Return 0 for an empty list. The input is a list of integers or floats, and the function must not modify it.

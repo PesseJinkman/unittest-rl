@@ -1,0 +1,78 @@
+{
+  "slug": "sum_even_numbers",
+  "level": "L1",
+  "entrypoints": [
+    "sum_even_numbers"
+  ],
+  "sample_inputs": [
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        [
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        []
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        [
+          7,
+          9,
+          11
+        ]
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "sum_even_numbers",
+      "args": [
+        [
+          8
+        ]
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Mistakenly sums odd numbers instead of even numbers."
+    },
+    {
+      "id": "bug_03",
+      "description": "Uses absolute values of even numbers, losing negative signs."
+    },
+    {
+      "id": "bug_04",
+      "description": "Stops before the last element, missing a possible even number there."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Write a function alternate_merge(a, b) that returns a new string made by taking characters from a and b in turn, starting with a. When one string runs out, append the rest of the other string unchanged. If either input is empty, return the other. If both are empty, return an empty string. Inputs are plain strings and the function is case-sensitive.

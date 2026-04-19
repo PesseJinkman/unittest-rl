@@ -1,0 +1,56 @@
+{
+  "slug": "rolling_median_window",
+  "level": "L3",
+  "entrypoints": [
+    "RollingMedianWindow"
+  ],
+  "sample_inputs": [
+    {
+      "call": "RollingMedianWindow",
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedianWindow",
+      "args": [
+        1
+      ],
+      "kwargs": {}
+    },
+    {
+      "call": "RollingMedianWindow",
+      "args": [
+        4
+      ],
+      "kwargs": {}
+    }
+  ],
+  "buggy_variants": [
+    {
+      "id": "bug_01",
+      "description": "Evicts newest item instead of oldest when window is full"
+    },
+    {
+      "id": "bug_02",
+      "description": "For even count, returns upper middle instead of mean"
+    },
+    {
+      "id": "bug_03",
+      "description": "Uses bisect_right-like removal, breaking duplicate eviction"
+    },
+    {
+      "id": "bug_04",
+      "description": "values() exposes sorted contents instead of insertion order"
+    },
+    {
+      "id": "bug_05",
+      "description": "Accepts bool size because bool is treated as int"
+    },
+    {
+      "id": "bug_06",
+      "description": "median() returns 0 on empty instead of raising"
+    }
+  ]
+}
