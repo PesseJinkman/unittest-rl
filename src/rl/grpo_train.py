@@ -202,16 +202,10 @@ def train_grpo(cfg: dict[str, Any]) -> None:
     cb = CurriculumCallback(curriculum, buffer, csv_logger)
 
     def _collate(features):
-        # Put a tensor first so accelerate's find_batch_size returns immediately
-        # without recursing into the string fields and raising TypeError.
-        return {
-            "_n": torch.arange(len(features)),
-            "prompt": [f["prompt"] for f in features],
-            "reference_code": [f["reference_code"] for f in features],
-            "buggy_variants": [f["buggy_variants"] for f in features],
-            "slug": [f["slug"] for f in features],
-            "level": [f["level"] for f in features],
-        }
+        # GRPOTrainer expects a list of dicts (it does `[x["prompt"] for x in inputs]`).
+        # Prepend a 1-D tensor to each dict so accelerate's find_batch_size returns
+        # without recursing into string fields and raising TypeError.
+        return [{"_n": torch.zeros(1, dtype=torch.long), **f} for f in features]
 
     # 8. Trainer
     trainer = GRPOTrainer(
