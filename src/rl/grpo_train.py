@@ -153,7 +153,7 @@ def train_grpo(cfg: dict[str, Any]) -> None:
         curriculum=curriculum,
         tokenizer=tok,
         seed=int(cfg.get("seed", 42)),
-        max_prompt_tokens=int(g.get("max_prompt_length", 1024)),
+        max_prompt_tokens=int(cfg["grpo"].get("max_prompt_length", 1024)),
     )
 
     # 5. reward fn + buffer
